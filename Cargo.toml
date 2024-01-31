@@ -3,8 +3,12 @@ name = "kemono-feed"
 version = "0.1.0"
 edition = "2021"
 
+# https://github.com/rustwasm/wasm-pack/issues/1247
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = false
+
 [lib]
-crate-type = ["cdylib", "rlib"]
+crate-type = ["cdylib"]
 
 [dependencies]
 anyhow = "1.0.79"
@@ -15,3 +19,8 @@ scraper = "0.18.1"
 serde = { version = "1.0.196", features = ["derive"] }
 getrandom = { version = "0.2.12", features = ["js"] }
 worker = "0.0.18"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
