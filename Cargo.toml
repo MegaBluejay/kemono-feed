@@ -1,0 +1,17 @@
+[package]
+name = "kemono-feed"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+anyhow = "1.0.79"
+atom_syndication = "0.12.2"
+chrono = { version = "0.4.33", features = ["serde"] }
+reqwest = { version = "0.11.23", features = ["blocking", "json"] }
+scraper = "0.18.1"
+serde = { version = "1.0.196", features = ["derive"] }
+getrandom = { version = "0.2.12", features = ["js"] }
+worker = "0.0.18"
